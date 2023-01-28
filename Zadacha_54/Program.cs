@@ -1,4 +1,4 @@
-﻿// Задача 54: Задайте двумерный массив. Напишите программу, 
+﻿// Задача 54: Задайте двумерный массив. Напишите программу,
 // которая упорядочит по убыванию элементы каждой строки двумерного массива.
 // Например, задан массив:
 // 1 4 7 2
@@ -11,6 +11,7 @@
 
 using System;
 using static System.Console;
+
 Clear();
 WriteLine();
 WriteLine("    # MaTrix GeNeRaTiNg & rows sorted #");
@@ -27,7 +28,6 @@ int[,] array = GetMatrixArray(RowsMain, ColumnsMain);
 PrintMatrixArray(array);
 WriteLine();
 
-
 int[] row = new int[ColumnsMain];
 for (int i = 0; i < RowsMain; i++)
 {
@@ -40,9 +40,6 @@ WriteLine("    Sorted array:");
 WriteLine();
 PrintMatrixArray(array);
 WriteLine();
-
-
-
 
 int[,] GetMatrixArray(int arrayRows, int arrayColumns)
 {
@@ -64,33 +61,31 @@ void PrintMatrixArray(int[,] inArray)
     {
         for (int j = 0; j < inArray.GetLength(1); j++)
         {
-            Write($"{inArray[i, j], 4} "); 
+            Write($"{inArray[i, j], 4} ");
         }
         WriteLine();
     }
 }
 
 void BubbleSort(int[] SortArray)
-    {
-        for (int i = 0; i < SortArray.Length; i++)
-            for (int j = 0; j < SortArray.Length - i - 1; j++)
-            {
-                if (SortArray[j] < SortArray[j + 1])
-                {
-                    int temp = SortArray[j];
-                    SortArray[j] = SortArray[j + 1];
-                    SortArray[j + 1] = temp;
-                }
-            }
-    }
-
- void Insert(bool isRow, int dim, int[] source, int[,] dest)
-    {
-        for (int k = 0; k < source.Length; k++)
+{
+    for (int i = 0; i < SortArray.Length; i++)
+        for (int j = 0; j < SortArray.Length - i - 1; j++)
         {
-            if (isRow)
-                dest[dim, k] = source[k];
-            else
-                dest[k, dim] = source[k];
+            if (SortArray[j] < SortArray[j + 1])
+            {
+                (SortArray[j], SortArray[j + 1]) = (SortArray[j + 1], SortArray[j]);
+            }
         }
+}
+
+void Insert(bool isRow, int dim, int[] source, int[,] dest)
+{
+    for (int k = 0; k < source.Length; k++)
+    {
+        if (isRow)
+            dest[dim, k] = source[k];
+        else
+            dest[k, dim] = source[k];
     }
+}
