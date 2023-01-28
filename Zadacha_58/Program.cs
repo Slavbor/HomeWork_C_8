@@ -23,16 +23,21 @@ int ColumnsMain = int.Parse(ReadLine()!);
 WriteLine();
 
 int[,] array = GetMatrixArray(RowsMain, ColumnsRowsMain);
+WriteLine("    Matrix A");
 PrintMatrixArray(array);
 WriteLine();
+WriteLine("    Matrix B");
 
 int[,] array2 = GetMatrixArray(ColumnsRowsMain, ColumnsMain);
 PrintMatrixArray(array2);
 WriteLine();
+WriteLine(" Matrix A x Matrix B multiplication result");
+
 
 var result = MatrixMultiplication(array, array2);
 
 PrintMatrixArray(result);
+WriteLine();
 
 
 
