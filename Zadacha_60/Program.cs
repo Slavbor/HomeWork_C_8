@@ -73,7 +73,7 @@ void PrintArray3d(int[,,] array3d)
             {
                 Write($"{array3d[i, j, k]}({i},{j},{k}) ");
             }
-            Console.WriteLine();
+            WriteLine();
         }
     }
 }
