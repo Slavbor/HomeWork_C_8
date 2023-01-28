@@ -14,6 +14,7 @@
 // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 using System;
 using static System.Console;
+
 Clear();
 WriteLine();
 WriteLine("    # MaTrix GeNeRaTiNg & min summ in rows calc #");
@@ -30,7 +31,6 @@ int[,] array = GetMatrixArray(RowsMain, ColumnsMain);
 PrintMatrixArray(array);
 WriteLine();
 
-
 int[] SummArray = new int[array.GetLength(0)];
 
 int summ = 0;
@@ -41,28 +41,23 @@ for (int i = 0; i < array.GetLength(0); i++)
         summ += array[i, j];
     }
     SummArray[i] = summ;
-    
+
     summ = 0;
 }
 
-
-
 int min = SummArray[0];
 int index = 0;
- 
+
 for (int i = 1; i < SummArray.Length; i++)
- 
-    if (min > SummArray[i])
+
+    if (SummArray[i] < min)
     {
         min = SummArray[i];
         index = i;
     }
 
 WriteLine();
-WriteLine($"Номер строки с наименьшей суммой элементов: {index+1}");
-
-
-
+WriteLine($"Номер строки с наименьшей суммой элементов: {index + 1}");
 
 int[,] GetMatrixArray(int arrayRows, int arrayColumns)
 {
@@ -84,19 +79,8 @@ void PrintMatrixArray(int[,] inArray)
     {
         for (int j = 0; j < inArray.GetLength(1); j++)
         {
-            Write($"{inArray[i, j], 4} "); 
+            Write($"{inArray[i, j], 4} ");
         }
         WriteLine();
     }
-}
-
-void PrintArray(int[] RowArray)
-{
-    Write("[");     
-    for (int i = 0; i < RowArray.Length; i++)
-    {
-        Write($"{RowArray[i]}");
-        Write(i < RowArray.Length - 1 ? ", " : "");
-    }
-    Write("]");
 }
